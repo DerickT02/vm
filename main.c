@@ -2,6 +2,7 @@
 #include <stdbool.h>
 
 
+//0, 1, 2, 3, 4
 typedef enum{
     PSH,
     ADD,
@@ -10,6 +11,7 @@ typedef enum{
     HLT
 } InstructionSet;
 
+//0, 1, 2, 3, 4, 5, 6
 typedef enum{
     A, B, C, D, E, F,
     NUM_OF_REGISTERS
@@ -40,22 +42,23 @@ void eval(int instr){
         break;
     }
     case PSH: {
+        //Use value and increment
         sp++; //Increment first because sp is initially at -1
-        stack[sp] = program[++ip];
+        stack[sp] = program[++ip]; //Increment and use
         break;
     }
 
     case POP: {
-        int val_popped = stack[sp--];
+        int val_popped = stack[sp--]; //Use and decrement
         printf("Value popped: %d\n", val_popped);
         break;
     }
 
     case ADD: {
-        int a = stack[sp--];
-        int b = stack[sp--];
+        int a = stack[sp--];  //Use and decrement
+        int b = stack[sp--];  //Use and decrement
         int sum = b + a;
-        sp++;
+        sp++; //Use and increment
         stack[sp] = sum;
         printf("Sum, %d\n", stack[sp]);
 
