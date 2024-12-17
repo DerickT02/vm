@@ -2,7 +2,14 @@
 triple:          'arm64-apple-darwin'
 binary-path:     vm
 relocations:
-  - { offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003F54, symSize: 0x20 }
-  - { offset: 0x3F, size: 0x8, addend: 0x0, symName: _program, symObjAddr: 0x20, symBinAddr: 0x100003F80, symSize: 0x0 }
-  - { offset: 0x6E, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003F54, symSize: 0x20 }
+  - { offset: 0x26, size: 0x8, addend: 0x0, symName: _eval, symObjAddr: 0x0, symBinAddr: 0x100003D64, symSize: 0x174 }
+  - { offset: 0x3F, size: 0x8, addend: 0x0, symName: _program, symObjAddr: 0x1F0, symBinAddr: 0x100003F60, symSize: 0x0 }
+  - { offset: 0x73, size: 0x8, addend: 0x0, symName: _ip, symObjAddr: 0xA1C, symBinAddr: 0x100008008, symSize: 0x0 }
+  - { offset: 0x88, size: 0x8, addend: 0x0, symName: _sp, symObjAddr: 0x20C, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offset: 0x9D, size: 0x8, addend: 0x0, symName: _running, symObjAddr: 0x210, symBinAddr: 0x100008004, symSize: 0x0 }
+  - { offset: 0xC0, size: 0x8, addend: 0x0, symName: _registers, symBinAddr: 0x10000800C, symSize: 0x0 }
+  - { offset: 0xE1, size: 0x8, addend: 0x0, symName: _stack, symBinAddr: 0x100008024, symSize: 0x0 }
+  - { offset: 0xFE, size: 0x8, addend: 0x0, symName: _eval, symObjAddr: 0x0, symBinAddr: 0x100003D64, symSize: 0x174 }
+  - { offset: 0x176, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x188, symBinAddr: 0x100003EEC, symSize: 0x50 }
+  - { offset: 0x18F, size: 0x8, addend: 0x0, symName: _fetch, symObjAddr: 0x1D8, symBinAddr: 0x100003F3C, symSize: 0x18 }
 ...

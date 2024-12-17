@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+
 typedef enum{
     PSH,
     ADD,
@@ -8,6 +9,13 @@ typedef enum{
     SET,
     HLT
 } InstructionSet;
+
+typedef enum{
+    A, B, C, D, E, F,
+    NUM_OF_REGISTERS
+} Registers;
+
+int registers[NUM_OF_REGISTERS];
 
 const int program[] = {
     PSH, 5,
@@ -17,6 +25,56 @@ const int program[] = {
     HLT
 };
 
-int main(){
-    printf("Hello World");
+int ip = 0;
+int sp = -1;
+int stack[256];
+bool running = true;
+
+int fetch();
+
+void eval(int instr){
+    switch (instr)
+    {
+    case HLT: {
+        running = false;
+        break;
+    }
+    case PSH: {
+        sp++; //Increment first because sp is initially at -1
+        stack[sp] = program[++ip];
+        break;
+    }
+
+    case POP: {
+        int val_popped = stack[sp--];
+        printf("Value popped: %d\n", val_popped);
+        break;
+    }
+
+    case ADD: {
+        int a = stack[sp--];
+        int b = stack[sp--];
+        int sum = b + a;
+        sp++;
+        stack[sp] = sum;
+        printf("Sum, %d\n", stack[sp]);
+
+    }
+    default:
+        break;
+    }
 }
+
+
+int main(){
+    while(running){
+        eval(fetch());
+        ip++;
+    }
+   
+    return 0;
+}
+
+int fetch(){
+    return program[ip];
+};
